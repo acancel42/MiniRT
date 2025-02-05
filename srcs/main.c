@@ -6,7 +6,7 @@
 /*   By: acancel <acancel@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:22:28 by acancel           #+#    #+#             */
-/*   Updated: 2024/12/11 15:22:29 by acancel          ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 15:34:39 by acancel          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	rt.cam.rot_mat = rodrigues_rot(&rt, rt.cam.normal_rot, rt.cam.theta);
-	render_scene(&rt, &rt.img);
-	mlx_put_image_to_window(rt.img.mlx_ptr, rt.img.win_ptr, rt.img.img, 0, 0);
-	mlx_launch_event_and_loop(&rt.img);
+	draw_image(&rt);
+	mlx_launch_event_and_loop(&rt.img, &rt);
 	mlx_destroy_all(&rt.img);
 	array_free(&rt.objects);
 	return (0);

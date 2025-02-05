@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anfichet <anfichet@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: acancel <acancel@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:56:43 by anfichet          #+#    #+#             */
-/*   Updated: 2024/12/09 17:56:44 by anfichet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 15:35:26 by acancel          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	init_minirt(t_minirt *minirt)
 						minirt->cam.direction);
 	minirt->cam.normal_rot = cross_vec3(minirt->cam.world_dir, \
 						minirt->cam.direction);
+	minirt->to_redraw = true;
 	return (0);
 }

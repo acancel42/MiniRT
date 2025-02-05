@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anfichet <anfichet@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: acancel <acancel@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:56:38 by anfichet          #+#    #+#             */
-/*   Updated: 2024/12/11 10:23:27 by anfichet         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 15:35:15 by acancel          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,15 @@ void	render_scene(t_minirt *minirt, t_img *img)
 		}
 		y++;
 	}
+}
+
+int	draw_image(t_minirt *mini)
+{
+	if (mini->to_redraw == false)
+		return (0);
+	render_scene(mini, &mini->img);
+	mlx_put_image_to_window(mini->img.mlx_ptr, \
+			mini->img.win_ptr, mini->img.img, 0, 0);
+	mini->to_redraw = false;
+	return (0);
 }
